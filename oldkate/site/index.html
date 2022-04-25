@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Kate Harkness</title>
+
+<script type="text/javascript">
+
+function start_vimeo(vimeo_ID, close_target) {
+    var v_iframe=document.getElementById("vimeo_iframe");
+    v_iframe.src="http://player.vimeo.com/video/" + vimeo_ID + "?color=ff9999";
+    var v_iframe_close=document.getElementById("vimeo_close");
+    v_iframe_close.href=close_target;
+}
+
+function stop_vimeo() {
+    var v_iframe=document.getElementById("vimeo_iframe");
+    v_iframe.src="";
+}
+</script>
+
+<style type="text/css">
+
+#film {
+    background-image:url(images/filmandvideo_button.png);
+    width:206px;
+}
+
+#film:hover {
+    background-image:url(images/filmandvideo_button_2.png);
+}
+
+#art {
+    background-image:url(images/art_button.png);
+    width:147px;
+}
+
+#art:hover {
+    background-image:url(images/art_button_2.png);
+}
+
+#about {
+    background-image:url(images/aboutme_button.png);
+    width:221px;
+}
+
+#about:hover {
+    background-image:url(images/aboutme_button_2.png);
+}
+
+#contact {
+    background-image:url(images/contact_button.png);
+    width:282px;
+}
+
+#contact:hover {
+    background-image:url(images/contact_button_2.png);
+}
+
+#films {
+    background-image:url(images/films.png);
+    width:132px;
+}
+
+#films:hover {
+    background-image:url(images/films_2.png);
+}
+
+#videos {
+    background-image:url(images/videos.png);
+    width:174px;
+}
+
+#videos:hover {
+    background-image:url(images/videos_2.png);
+}
+
+#animations {
+    background-image:url(images/animations.png);
+    width:304px;
+}
+
+#animations:hover {
+    background-image:url(images/animations_2.png);
+}
+
+.button {
+    display:block;
+    height:140px;
+    margin-bottom:10px;
+}
+
+.tvbutton {
+    display:block;
+    height:37px;
+    margin-bottom:20px;
+}
+
+.framesbutton {
+    display:block;
+    height:22px;
+}
+
+#threed {
+    background-image:url(images/button_3D.png);
+    width:38px;
+    top:165px;
+    left:375px;
+    position:absolute;
+}
+
+#threed:hover {
+    background-image:url(images/button_3D_2.png);
+}
+
+#painting {
+    background-image:url(images/button_painting.png);
+    width:142px;
+    top:410px;
+    left:323px;
+    position:absolute;
+}
+
+#painting:hover {
+    background-image:url(images/button_painting_2.png);
+}
+
+#photo {
+    background-image:url(images/button_photo.png);
+    width:106px;
+    top:295px;
+    left:603px;
+    position:absolute;
+}
+
+#photo:hover {
+    background-image:url(images/button_photo_2.png);
+	
+}
+#design {
+    background-image:url(images/button_design.png);
+    width:108px;
+    top:288px;
+    left:80px;
+    position:absolute;
+}
+
+#design:hover {
+    background-image:url(images/button_design_2.png);	
+}
+
+html {
+    background: url(images/page_feet.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+iframe {
+    border:3px solid #ff9999;
+    padding:3px;
+
+    -webkit-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+
+    -webkit-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    -moz-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    -ms-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    -o-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+}
+
+#nav {
+    margin-top: 10px;
+}
+
+#hidden {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    display: none;
+}
+
+.main_overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    bottom:0;
+    cursor:default;
+    left:0;
+    opacity:0;
+    position:fixed;
+    right:0;
+    top:0;
+    visibility:hidden;
+    z-index:1;
+	
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    -o-transition: opacity .5s;
+    transition: opacity .5s;
+}
+
+.sub_overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    bottom:0;
+    cursor:default;
+    left:0;
+    opacity:0;
+    position:fixed;
+    right:0;
+    top:0;
+    visibility:hidden;
+    z-index:1;
+}
+
+.vimeo_overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    bottom:0;
+    cursor:default;
+    left:0;
+    opacity:0;
+    position:fixed;
+    right:0;
+    top:0;
+    visibility:hidden;
+    z-index:1;
+}
+
+.main_overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.sub_overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.vimeo_overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    display: inline-block;
+    left: 50%;
+    opacity: 0;
+    position: fixed;
+    top: 40%;
+    visibility: hidden;
+    z-index: 10;
+    height:600px;
+    width:800px;
+    margin: 0px;
+    padding: 0px;
+
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    -webkit-transition: opacity .5s, top .5s;
+    -moz-transition: opacity .5s, top .5s;
+    -ms-transition: opacity .5s, top .5s;
+    -o-transition: opacity .5s, top .5s;
+    transition: opacity .5s, top .5s;
+}
+
+.sub_popup {
+    display: inline-block;
+    left: 50%;
+    opacity: 0;
+    position: fixed;
+    top: 40%;
+    visibility: hidden;
+    z-index: 10;
+    height:600px;
+    width:800px;
+    margin: 0px;
+    padding: 0px;
+
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.vimeo_popup {
+    display: inline-block;
+    left:10%;
+    opacity: 0;
+    position: fixed;
+    top: 15px;
+    visibility: hidden;
+    z-index: 10;
+    margin: 0px;
+    padding: 0px;
+}
+
+.main_overlay:target+.popup {
+    top: 50%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.sub_overlay:target+.sub_popup {
+    top: 50%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.vimeo_overlay:target+.vimeo_popup {
+    opacity: 1;
+    visibility: visible;
+}
+
+.close {
+    background-color: #ffffff;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-decoration: none;
+    top: 0;
+    width: 30px;
+
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.close:before {
+    color: #6666cc;
+    content: "X";
+    font-size: 24px;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
+}
+
+.close:hover {
+    background-color: #ffcc33;
+}
+
+.back {
+    background-color: #ffffff;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-decoration: none;
+    top: 0;
+    width: 30px;
+
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.back:before {
+    color: #6666cc;
+    content: "\21A9";
+    font-size: 24px;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
+}
+
+.back:hover {
+    background-color: #ffcc33;
+}
+
+.close_movie {
+    background-color: #ffffff;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    right: -10px;
+    text-align: center;
+    text-decoration: none;
+    top: -10px;
+    width: 30px;
+
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.close_movie:before {
+    color: #6666cc;
+    content: "\21A9";
+    font-size: 24px;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
+}
+
+.close_movie:hover {
+    background-color: #ff9999;
+}
+
+#tv {
+    background-image:url(images/page_filmandvideo.png);
+}
+
+#tv div {
+    top: 230px;
+    left: 215px;
+    position:absolute;
+}
+
+#tv_films {
+    background-image:url(images/page_films.png);
+}
+
+#tv_videos {
+    background-image:url(images/page_videos.png);
+}
+
+#tv_animations {
+    background-image:url(images/page_animations.png);
+}
+
+#frames {
+    background-image:url(images/page_art.png);
+}
+
+#frames_threed {
+    background-image:url(images/page_3D.png);
+}
+
+#frames_painting {
+    background-image:url(images/page_painting.png);
+} 
+
+#frames_design {
+    background-image:url(images/page_design.png);
+}
+
+#frames_photo {
+    background-image:url(images/page_photo.png);
+}
+
+#contact_info {
+    background-image:url(images/page_contact.png);
+}
+
+.tv_links {
+    top:170px;
+    left:215px;
+    width:400px;
+    position:absolute;
+}
+
+.thumbnail {
+    margin:2px 2px 2px 2px;
+    display:inline-block;
+    border:3px solid #ff9999;
+    padding:5px;
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+
+    -webkit-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    -moz-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    -ms-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    -o-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+}
+
+.thumbnail_tooltip {
+    position: relative;
+}
+
+.thumbnail_tooltip span {
+    display: none;
+    position: absolute;
+}
+
+.thumbnail_tooltip:hover span {
+    display: block;
+    top: -10px;
+    left: 10px;
+    z-index: 10;
+}
+
+#contact_info ul {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    list-style: none;
+}
+
+#contact_info a {
+    position: absolute;
+}
+
+#contact_info .email a {
+    top:168px;
+    left:460px;
+    width: 215px;
+    height: 15px;
+}
+
+#contact_info .risd_email a {
+    top:189px;
+    left:460px;
+    width: 175px;
+    height: 15px;
+}
+
+#contact_info .resume a {
+    top:427px;
+    left:460px;
+    width: 45px;
+    height: 15px;
+}
+
+#contact_info .vimeo_link a {
+    top:493px;
+    left:460px;
+    width: 220px;
+    height: 15px;
+}
+
+</style>
+</head>
+
+<body>
+<div id="nav">
+<a id="film" href="#film_popup" class="button"></a>
+<a id="art" href="#art_popup" class="button"></a>
+<a id="about" href="#about_popup" class="button"></a>
+<a id="contact" href="#contact_popup" class="button"></a>
+</div>
+<div id="hidden">
+<img src="images/filmandvideo_button_2.png" alt="film and video" />
+<img src="images/art_button_2.png" alt="art" />
+<img src="images/aboutme_button_2.png" alt="about me" />
+<img src="images/contact_button_2.png" alt="contact"  />
+<img src="images/films_2.png" alt="films" width="132" height="37" />
+<img src="images/videos_2.png" alt="videos" width="174" height="37" />
+<img src="images/animations_2.png" alt="animations" width="304" height="37" />
+<img src="images/button_3D_2.png" alt="3D" width="38" height="22" />
+<img src="images/button_design_2.png" alt="design" width="109" height="22" />
+<img src="images/button_painting_2.png" alt="painting" width="142" height="22" />
+<img src="images/button_photo_2.png" alt="photo" width="106" height="22" />
+<img src="images/page_animations.png" alt="amimations background" width="800" height="600" />
+<img src="images/page_films.png" alt="films background" width="800" height="600" />
+<img src="images/page_videos.png" alt="videos background" width="800" height="600" />
+<img src="images/page_3D.png" alt="3D background" width="800" height="600" />
+<img src="images/page_design.png" alt="design background" width="800" height="600" />
+<img src="images/page_painting.png" alt="paintings background" width="800" height="600" />
+<img src="images/page_photo.png" alt="photo background" width="800" height="600" />
+</div>
+
+<!-- about -->
+<a href="#x" class="main_overlay" id="about_popup"></a>
+<div class="popup">
+<img src="images/page_aboutme.png" alt="about kate"/>
+<a class="close" href="#close"></a>
+</div>
+
+<!-- contact -->
+<a href="#x" class="main_overlay" id="contact_popup"></a>
+<div class="popup" id="contact_info">
+<div>
+<ul>
+    <li class="email"><a href="mailto:kate@kateharkness.com"></a></li>
+    <li class="risd_email"><a href="mailto:kharknes@risd.edu"></a></li>
+    <li class="resume"><a href="kate_harkness_resume.pdf" target="_blank"></a></li>
+    <li class="vimeo_link"><a href="http://vimeo.com/kateharkness" target="_blank"></a></li>
+</ul>
+</div>
+<a class="close" href="#close"></a>
+</div>
+
+<!-- film -->
+<a href="#x" class="main_overlay" id="film_popup"></a>
+<div class="popup" id="tv">
+<div>
+<a id="films" href="#film_films_popup" class="tvbutton"></a>
+<a id="videos" href="#film_videos_popup" class="tvbutton"></a>
+<a id="animations" href="#film_animations_popup" class="tvbutton"></a>
+</div>
+<a class="close" href="#close"></a>
+</div>
+
+<!-- film films -->
+<a href="#x" class="sub_overlay" id="film_films_popup"></a>
+<div class="sub_popup" id="tv_films">
+<div class="tv_links">
+
+<div class="thumbnail"><a class="thumbnail_tooltip" href="#vimeo_popup" onclick="javascript:start_vimeo('36327137', '#film_films_popup')"><span><img src="images/button_onetake.png" alt=""/></span><img src="images/onetake.jpg" alt="one take"/></a></div>
+
+<div class="thumbnail"><a class="thumbnail_tooltip" href="#vimeo_popup" onclick="javascript:start_vimeo('39201866', '#film_films_popup')"><span><img src="images/button_ica.png" alt=""/></span><img src="images/ica.jpg" alt="ica"/></a></div>
+
+<div class="thumbnail"><a class="thumbnail_tooltip" href="#vimeo_popup" onclick="javascript:start_vimeo('39203125', '#film_films_popup')"><span><img src="images/button_coat.png" alt=""/></span><img src="images/coat.jpg" alt="coat"/></a></div>
+
+<div class="thumbnail"><a class="thumbnail_tooltip" href="#vimeo_popup" onclick="javascript:start_vimeo('39201870', '#film_films_popup')"><span><img src="images/button_patternspp.png" alt=""/></span><img src="images/patternspp.jpg" alt="patterns"/></a></div>
+
+<div class="thumbnail"><a class="thumbnail_tooltip" href="#vimeo_popup" onclick="javascript:start_vimeo('39201864', '#film_films_popup')"><span><img src="images/button_cocoa.png" alt=""/></span><img src="images/cocoa.jpg" alt="cocoa"/></a></div>
+
+</div>
+<a class="back" href="#film_popup"></a>
+</div>
+
+<!-- film videos -->
+<a href="#x" class="sub_overlay" id="film_videos_popup"></a>
+<div class="sub_popup" id="tv_videos">
+<div class="tv_links">
+
+<div class="thumbnail"><a class="thumbnail_tooltip" href="#vimeo_popup" onclick="javascript:start_vimeo('39209639', '#film_videos_popup')"><span><img src="images/button_tequila.png" alt=""/></span><img src="images/tequila.jpg" alt="tequila"/></a></div>
+
+<div class="thumbnail"><a class="thumbnail_tooltip" href="#vimeo_popup" onclick="javascript:start_vimeo('39209638', '#film_videos_popup')"><span><img src="images/button_musicvideo.png" alt=""/></span><img src="images/musicvideo.jpg" alt="musicvideo"/></a></div>
+
+<div class="thumbnail"><a class="thumbnail_tooltip" href="#vimeo_popup" onclick="javascript:start_vimeo('39201861', '#film_videos_popup')"><span><img src="images/button_waves.png" alt=""/></span><img src="images/waves.jpg" alt="waves"/></a></div>
+
+<div class="thumbnail"><a class="thumbnail_tooltip" href="#vimeo_popup" onclick="javascript:start_vimeo('31311718', '#film_videos_popup')"><span><img src="images/button_dancebattle.png" alt=""/></span><img src="images/dancebattle.jpg" alt="dancebattle"/></a></div>
+
+<!--
+<div class="thumbnail"><a class="thumbnail_tooltip" href="#vimeo_popup" onclick="javascript:start_vimeo('39201863', '#film_videos_popup')"><span><img src="images/button_portrait.png" alt=""/></span><img src="images/portrait.jpg" alt="portrait"/></a></div>
+-->
+
+</div>
+<a class="back" href="#film_popup"></a>
+</div>
+
+<!-- film animations -->
+<a href="#x" class="sub_overlay" id="film_animations_popup"></a>
+<div class="sub_popup" id="tv_animations">
+<div class="tv_links">
+
+<div class="thumbnail"><a class="thumbnail_tooltip" href="#vimeo_popup" onclick="javascript:start_vimeo('39209640', '#film_animations_popup')"><span><img src="images/button_driveroto.png" alt=""/></span><img src="images/driveroto.jpg" alt="driveroto"/></a></div>
+
+<div class="thumbnail"><a class="thumbnail_tooltip" href="#vimeo_popup" onclick="javascript:start_vimeo('38890531', '#film_animations_popup')"><span><img src="images/button_trapeze.png" alt=""/></span><img src="images/trapeze.jpg" alt="trapeze"/></a></div>
+
+<div class="thumbnail"><a class="thumbnail_tooltip" href="#vimeo_popup" onclick="javascript:start_vimeo('38890530', '#film_animations_popup')"><span><img src="images/button_lasttime.png" alt=""/></span><img src="images/lasttime.jpg" alt="lasttime"/></a></div>
+
+<div class="thumbnail"><a class="thumbnail_tooltip" href="#vimeo_popup" onclick="javascript:start_vimeo('38890532', '#film_animations_popup')"><span><img src="images/button_britannia.png" alt=""/></span><img src="images/britannia.jpg" alt="britannia"/></a></div>
+
+<div class="thumbnail"><a class="thumbnail_tooltip" href="#vimeo_popup" onclick="javascript:start_vimeo('39204673', '#film_animations_popup')"><span><img src="images/button_cantbe.png" alt=""/></span><img src="images/cantbe.jpg" alt="cantbe"/></a></div>
+
+</div>
+<a class="back" href="#film_popup"></a>
+</div>
+
+<!-- vimeo popup -->
+<div class="vimeo_overlay" id="vimeo_popup"></div>
+<div class="vimeo_popup" id="tv_vimeo">
+<iframe id="vimeo_iframe" src="" width="800" height="590" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+<a id="vimeo_close" class="close_movie" href="#film_popup" onclick="javascript:stop_vimeo()"></a>
+</div>
+
+<!-- art -->
+<a href="#x" class="main_overlay" id="art_popup"></a>
+<div class="popup" id="frames">
+<div>
+<a id="painting" href="#art_painting_popup" class="framesbutton"></a>
+<a id="design" href="#art_design_popup" class="framesbutton"></a>
+<a id="photo" href="#art_photo_popup" class="framesbutton"></a>
+<a id="threed" href="#art_threed_popup" class="framesbutton"></a>
+</div>
+<a class="close" href="#close"></a>
+</div>
+
+<!-- art 3D -->
+<a href="#x" class="sub_overlay" id="art_threed_popup"></a>
+<div class="sub_popup" id="frames_threed">
+<div>
+</div>
+<a class="back" href="#art_popup"></a>
+</div>
+
+<!-- art design -->
+<a href="#x" class="sub_overlay" id="art_design_popup"></a>
+<div class="sub_popup" id="frames_design">
+<div>
+</div>
+<a class="back" href="#art_popup"></a>
+</div>
+
+<!-- art painting -->
+<a href="#x" class="sub_overlay" id="art_painting_popup"></a>
+<div class="sub_popup" id="frames_painting">
+<div>
+</div>
+<a class="back" href="#art_popup"></a>
+</div>
+
+<!-- art photo -->
+<a href="#x" class="sub_overlay" id="art_photo_popup"></a>
+<div class="sub_popup" id="frames_photo">
+<div>
+</div>
+<a class="back" href="#art_popup"></a>
+</div>
+
+</body>
+</html>
